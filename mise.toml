@@ -1,0 +1,16 @@
+[tools]
+typst = "0.14.2"
+
+[tasks.cv]
+description = "Build cv PDF"
+run = "typst compile main.typ cv.pdf"
+dir = "{{config_root}}/cv"
+
+[tasks.resume]
+description = "Build resume PDF"
+run = "typst compile main.typ resume.pdf"
+dir = "{{config_root}}/resume"
+
+[tasks.build]
+description = "Build all PDFs"
+depends = ["cv", "resume"]
