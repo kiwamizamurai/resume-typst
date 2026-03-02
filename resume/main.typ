@@ -1,5 +1,5 @@
 #import "template/layout.typ": systemFontSize, inputFontSize
-#import "template/personal_info.typ": personal_details_block, photo_block
+#import "template/personal_info.typ": personal_details_block
 #import "template/address.typ": address_block
 #import "template/history.typ": history_section_block, education_entry_block, work_entry_block, certification_entry_block, end_marker_block
 #import "template/motivation.typ": motivation_block
@@ -19,31 +19,22 @@
 
 = #title_text
 
-#move(
-  dy: -1cm,
-  stack(
-    align(bottom,
-      grid(
-        columns: (5fr, 2fr),
-        personal_details_block(profile_data),
-        photo_block(profile_data)
-      ),
-    ),
-    address_block(address_data),
-    linebreak(),
-    history_section_block(
-      mode: "学歴・職歴",
-      grid(
-        for item in education_data {
-          education_entry_block(item)
-        },
-        linebreak(),
-        for item in work_data {
-          work_entry_block(item)
-        },
-        end_marker_block()
-      )
-    ),
+#stack(
+  personal_details_block(profile_data),
+  address_block(address_data),
+  linebreak(),
+  history_section_block(
+    mode: "学歴・職歴",
+    grid(
+      for item in education_data {
+        education_entry_block(item)
+      },
+      linebreak(),
+      for item in work_data {
+        work_entry_block(item)
+      },
+      end_marker_block()
+    )
   ),
 )
 #pagebreak()

@@ -74,31 +74,3 @@
     )
   )
 }
-
-#let photo_block(profile) = {
-  set text(size: 7pt)
-  pad(
-    bottom: 0.3cm,
-    left: 0.4cm,
-    box(
-      stroke: (
-        dash:"dashed",
-      ),
-      height: 4cm,
-      width: 3cm,
-      [
-        #if (profile.写真 == ""){
-          align(
-            center + horizon,
-            [
-              写真を貼る位置\
-              (縦 40mm, 横 30mm)
-            ]
-          )
-        } else {
-          image(profile.写真, width: 3cm, height: 4cm)
-        }
-      ]
-    )
-  )
-}
